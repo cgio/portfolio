@@ -1,5 +1,5 @@
 # Portfolio
-## Excerpts from a few of my projects in various languages  
+## Excerpts from a few projects in various languages  
 
 Website: [https://chadg.io](https://chadg.io)
 
