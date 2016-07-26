@@ -1,0 +1,67 @@
+try {
+  require_once('_categories.php');
+  $catArray = array_merge(
+      $whitelist_subreddit_1,
+      $whitelist_subreddit_2,
+      $whitelist_subreddit_3,
+      $whitelist_subreddit_4,
+      $whitelist_subreddit_5,
+      $whitelist_subreddit_6,
+      $whitelist_subreddit_7,
+      $whitelist_subreddit_8,
+      $whitelist_subreddit_9,
+      $whitelist_subreddit_10,
+      $whitelist_subreddit_11,
+      $whitelist_subreddit_12,
+      $whitelist_subreddit_13);
+  $catArray = array_unique($catArray);
+  shuffle($catArray);
+  $catString = join("','", $catArray);
+  unset($catArray);
+  $catString = "'" . $catString . "'";
+
+  $resultsPerPage = 100; // This should at least produce 78 results, the current maximum returned when device is non-mobile
+  $direction = 'DESC';
+  $operator = '<';
+
+  $stmt = $db->query("SELECT id, uid, title FROM $dbTable WHERE subreddit IN ($catString) ORDER BY id $direction LIMIT $resultsPerPage"); // Query from the highest id, i.e. the end of the database for the latest content
+  if ( $stmt->rowCount() == 0 ) {
+      die('Error: empty table (2)');
+  }
+  $result = $stmt->fetchAll();
+
+  if (!isset($result[99]['uid'])) { // Make sure 100 results were returned
+      exit;
+  }
+
+  $albums = [];
+
+  foreach ($result as $key1) {
+      $albumJson = getImgurData($imgur_client_id, $key1['id'], $key1['uid'], $key1['title']);
+      $albumObject = json_decode($albumJson[3]);
+      if ($albumObject !== null) {
+          if (isset($albumObject->success) && isset($albumObject->status) && isset($albumObject->data)) {
+              if ($albumObject->success == true && $albumObject->status == 200) {
+                  if (isset($albumObject->data->images)) {
+                      if (count($albumObject->data->images) > 1) { // At least two images in album
+                          $albums[] = array('id' => $key1['id'], 'uid' => $key1['uid'], 'title' =>  $key1['title'], 'total' => count($albumObject->data->images), 'thumb' => $albumObject->data->images['0']->id);
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  if (count($albums) > 0) {
+      usort($albums, function($a, $b) { // Sort by id, descending
+          return $b['id'] - $a['id'];
+      });
+      file_put_contents($file, json_encode($albums, true));
+      exit;
+  }
+
+}
+catch(PDOException $e){
+  header('Error: main query');
+  exit;
+}
