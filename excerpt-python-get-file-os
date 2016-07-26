@@ -1,0 +1,30 @@
+def get_file_os(file_path):
+    # Determine if file is Windows or Mac OS executable
+    # If Windows, determine if x86 or x64
+    # 134 bytes is about the min. size for the PE and DOS header combined
+    if is_legit_file(file_path) == True and stat(file_path).st_size >= 134:
+        if os.path.isfile(file_path):
+            f = open(file_path, 'rb')
+            basic_header_check = f.read(4).encode('hex')
+            if basic_header_check == '4d5a9000':  # e_magic
+                # Windows
+                f.seek(int('0x3c', 16))  # DWORD, e_lfanew, PE header start
+                pe_offset = f.read(4).encode('hex')
+                pe_offset = reverse_byte_string(pe_offset)
+                pe_offset = int(pe_offset, 16)
+                f.seek(pe_offset)
+                pe_sig = f.read(4).encode('hex')
+                if pe_sig == '50450000':  # Signature, i.e. "PE..."
+                    f.seek(pe_offset + 4)
+                    pe_machine = f.read(2).encode('hex')
+                    f.close()
+                    if pe_machine == '6486':  # Machine
+                        return 'x64'
+                    elif pe_machine == '4c01':  # Machine
+                        return 'x86'
+            elif basic_header_check == 'cffaedfe':  # MH_CIGAM_64
+                # Mac OS
+                f.close()
+                return 'mac'
+            f.close()
+    return False
