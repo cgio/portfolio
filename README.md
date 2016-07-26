@@ -1,7 +1,7 @@
 # Portfolio
 ## Excerpts from a few projects in various languages  
 
-Website: [https://chadg.io](https://chadg.io)
+See website for more: [https://chadg.io](https://chadg.io)
 
 **Only snippets are provided for compliance with differing licensing models**  
 Format: *file name, language/technologies, and description*  
@@ -51,3 +51,8 @@ Full code of the offline record viewer of consent files. Used for viewing record
 
 ---
 
+**excerpt-bat-sync-time**  
+*Windows batch file*  
+Full code of small script I wrote to sync Windows time with official time. Useful for trading programs that rely on local time for charting.
+
+---
