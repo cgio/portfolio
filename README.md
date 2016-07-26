@@ -8,19 +8,19 @@ Format: *file name, language/technologies, and description*
 
 ---
 
-**excerpt-node-bandcamp-crawler.js**  
+**excerpt-node-bandcamp-crawler**  
 *Node.js/JavaScript, HTML5, CSS*  
 Sample code of the main function I wrote for iterating through Bandcamp users, tracks, and wishlist data. The results, including playable tracks, fan thumbnails, etc. are displayed on a responsive page.
 
 ---
 
-**excerpt-vb.net-extract-emails-from-process-memory.vb**  
+**excerpt-vb.net-extract-emails-from-process-memory**  
 *Visual Basic .NET*  
 Sample code of the main function I wrote for interating through a process's memory to extract email addresses. This is useful for finding vulnerabilities that expose email addresses of other users inside Windows processes.
 
 ---
 
-**excerpt-c#-reverse-engineered-decryption-routine.cs**  
+**excerpt-c#-reverse-engineered-decryption-routine**  
 *C#*  
 Sample code of a decryption routine I wrote after reverse engineering the encryption routine
 
