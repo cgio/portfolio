@@ -3,7 +3,7 @@
 
 See website for more: [https://chadg.io](https://chadg.io)
 
-**Only snippets are provided for compliance with differing licensing models**  
+**For compliance with differing licensing models, most code is abridged**  
 Format: *file name, language/technologies, and description*  
 Listed in no particular order
 
