@@ -8,6 +8,12 @@ Format: *file name, language/technologies, and description*
 
 ---
 
+**excerpt-python-get-file-os**  
+*Python*  
+Sample code of a function I wrote that reads an executable file's header to determine if Windows x86, x64, or Mac OS. This script then uses this information to search the file based on a byte pattern with wildcards. Saves a bunch of time over static analysis.
+
+---
+
 **excerpt-node-bandcamp-crawler**  
 *Node.js/JavaScript, HTML5, CSS*  
 Sample code of the main function I wrote for iterating through Bandcamp users, tracks, and wishlist data. The results, including playable tracks, fan thumbnails, etc. are displayed on a responsive page.
@@ -38,5 +44,9 @@ Sample code of my Reddit and Imgur aggregation and display engine for deciding t
 
 ---
 
+**excerpt-javascript-record-viewer**  
+*JavaScript, HTML5, CSS*  
+Full code of the offline record viewer of consent files. Used for viewing records that show who opted in and when.
 
+---
 
