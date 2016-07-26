@@ -1,0 +1,43 @@
+MOV BYTE PTR SS:[ESP+0x3C],0x1 ;Original hooked code
+
+PUSHAD ;Save the registers for restoration later
+XOR EAX, EAX ;Set sv2 flag to default value of 0
+MOV EDI, DWORD PTR DS:[ESP+0x20] ;Move the real MID to EDI
+MOV ESI, @sv0 ;Assume sv0 by default
+CMP BYTE PTR DS:[EDI+0x2], 0x78 ;Is this a sv0? (look for 'x' as second character)
+JE @hook_prepare ;Jump right to it - it's sv0
+CMP BYTE PTR DS:[EDI], 0x76 ;Is this a sv2? (look for 'v' as first character)
+JE @hook_prepare_sv2 ;Jump over the next instruction
+MOV ESI, @sv1 ;Use the sv1 string instead
+JMP @hook_prepare ;Jump right to it - it's sv1
+
+@hook_prepare:
+XOR EBX, EBX ;Clear the counter
+XOR ECX, ECX ;Clear the copy bit (CL)
+JMP @hook_loop ;Go to string replace loop
+
+@hook_prepare_sv2:
+MOV EAX, 0x1 ;This is the sv2 string, so raise a flag for later
+MOV ESI, @sv1 ;Use the sv1 string, since sv2 is similar
+XOR EBX, EBX ;Clear the counter
+XOR ECX, ECX ;Clear the copy bit (CL)
+INC EBX ;Skip over the "v" in sv2
+JMP @hook_loop ;Go to string replace loop
+
+@hook_loop:
+CMP WORD PTR DS:[ESI+EBX], 0x0000 ;Are we done processing the unicode string?
+JE @hook_finish ;If yes, jump to finish 
+MOV CL, BYTE PTR DS:[ESI+EBX] ;Put copy byte from source into CL
+MOV BYTE PTR DS:[EDI+EBX], CL ;Put CL into destination
+INC EBX ;Increment
+JMP @hook_loop ;Repeat
+
+@hook_finish:
+CMP EAX, 0x1 ;Check for sv2 flag
+JE @hook_finish_sv2 ;Handle sv2 flag if present
+INC EBX ;Close off unicode string
+MOV BYTE PTR DS:[EDI+EBX], 0x0 ;Close off unicode string
+INC EBX ;Close off unicode string
+MOV BYTE PTR DS:[EDI+EBX], 0x0 ;Close off unicode string
+POPAD ;Restore registers
+JMP $process.726B3C ;Continue with normal execution
