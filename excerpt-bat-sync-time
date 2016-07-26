@@ -1,0 +1,23 @@
+@echo off
+
+call :isAdmin
+if %errorlevel% == 0 (
+	echo Syncing computer clock...
+	net start w32time >nul 2>nul
+	w32tm /register >nul 2>nul
+	w32tm /resync /nowait >nul 2>nul
+	cls
+	echo Syncing attempt complete. Allow about 30 seconds to take effect.
+	echo Optionally, verify accuracy at http://time.is in a new browsing window or tab.
+	echo.
+	echo You may now close this window.
+) else (
+	echo Close this window and run again as an administrator
+	pause >nul
+	exit /b
+)
+pause >nul
+exit /b
+
+:isAdmin
+fsutil dirty query %systemdrive% >nul
