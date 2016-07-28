@@ -1,0 +1,26 @@
+Dim fso As New FileSystemObject
+Dim ts As TextStream
+
+Set ts = fso.OpenTextFile("C:\test.txt")
+Dim data As String
+data = ts.ReadAll
+
+Dim i As Long
+Dim strDecoded As String
+Dim strDecode As String
+
+For i = 1 To Len(data)
+ContinueIt:
+	If Mid(data, i, 2) = "\x" Then
+		strDecode = Chr(Val("&H" & Mid(data, i + 2, 2)))
+		strDecoded = strDecoded & strDecode
+		i = i + 4
+		GoTo ContinueIt
+	End If
+    
+strDecoded = strDecoded & Mid(data, i, 1)
+
+Next i
+
+Clipboard.Clear
+Clipboard.SetText strDecoded
