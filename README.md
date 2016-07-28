@@ -4,7 +4,7 @@
 See website for more: [https://chadg.io](https://chadg.io)
 
 **For compliance with differing licensing models, most code is abridged**  
-Format: *file name, language/technologies, and description*  
+Format: *file name/link, language/technologies, and description*  
 Listed in no particular order
 
 ---
@@ -27,7 +27,7 @@ Sample code of the main function I wrote for interating through a process's memo
 
 ---
 
-[**excerpt-c#-reverse-engineered-decryption-routine**](/excerpt-c#-reverse-engineered-decryption-routine)  
+[**excerpt-c#-reverse-engineered-decryption-routine**](/excerpt-c%23-reverse-engineered-decryption-routine)  
 *C#*  
 Sample code of a decryption routine I wrote after reverse engineering the encryption routine
 
