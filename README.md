@@ -52,7 +52,13 @@ Full code of the offline record viewer of consent files. Used for viewing record
 ---
 
 [**excerpt-bat-sync-time**](/excerpt-bat-sync-time)  
-*Windows batch file*  
+*Windows command line*  
 Full code of small script I wrote to sync Windows time with official time. Useful for trading programs that rely on local time for charting.
+
+---
+
+[**excerpt-vb6-sendy-decoder**](/excerpt-vb6-sendy-decoder)  
+*Visual Basic 6.0*  
+Simple script I wrote in the old VB6 language to decode sendy.co's obfuscated code.
 
 ---
