@@ -62,3 +62,7 @@ Full code of small script I wrote to sync Windows time with official time. Usefu
 Simple script I wrote in the old VB6 language to decode sendy.co's obfuscated code.
 
 ---
+
+[**excerpt-block-email-tracking-services**](/excerpt-block-email-tracking-services)  
+Text file
+A listing of hostnames I collected that can be used to block email tracking services (via the OS hosts file)
