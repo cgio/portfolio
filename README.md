@@ -21,13 +21,13 @@ Sample code of the main function I wrote for iterating through Bandcamp users, t
 
 ---
 
-[**excerpt-vb.net-extract-emails-from-process-memory**](/excerpt-vb.net-extract-emails-from-process-memory)    
+[**excerpt-vb.net-extract-emails-from-process-memory**](/excerpt-vb.net-extract-emails-from-process-memory)  
 *Visual Basic .NET*  
 Sample code of the main function I wrote for interating through a process's memory to extract email addresses. This is useful for finding vulnerabilities that expose email addresses of other users inside Windows processes.
 
 ---
 
-[**excerpt-c#-reverse-engineered-decryption-routine**](/excerpt-c#-reverse-engineered-decryption-routine)
+[**excerpt-c#-reverse-engineered-decryption-routine**](/excerpt-c#-reverse-engineered-decryption-routine)  
 *C#*  
 Sample code of a decryption routine I wrote after reverse engineering the encryption routine
 
@@ -45,13 +45,13 @@ Sample code of my Reddit and Imgur aggregation and display engine for deciding t
 
 ---
 
-[**excerpt-javascript-record-viewer**](/excerpt-javascript-record-viewer)    
+[**excerpt-javascript-record-viewer**](/excerpt-javascript-record-viewer)  
 *JavaScript, HTML5, CSS*  
 Full code of the offline record viewer of consent files. Used for viewing records that show who opted in and when.
 
 ---
 
-[**excerpt-bat-sync-time**](/excerpt-bat-sync-time)
+[**excerpt-bat-sync-time**](/excerpt-bat-sync-time)  
 *Windows batch file*  
 Full code of small script I wrote to sync Windows time with official time. Useful for trading programs that rely on local time for charting.
 
