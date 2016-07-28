@@ -65,4 +65,4 @@ Simple script I wrote in the old VB6 language to decode sendy.co's obfuscated co
 
 [**excerpt-block-email-tracking-services**](/excerpt-block-email-tracking-services)  
 *Text file*  
-A listing of hostnames I collected that can be used to block email tracking services (via the OS hosts file)
+A listing of hostnames I compiled that can be used to block email tracking services (via the OS hosts file)
