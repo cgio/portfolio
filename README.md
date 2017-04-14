@@ -1,7 +1,7 @@
 # Portfolio
 ## Samples from select projects in various languages
 
-**For compliance with varying software licenses, most code is abridged**  
+**For compliance with various software licenses, most code is abridged**  
 Format: *file name/link, language/technologies, and description*  
 Listed in no particular order
 
@@ -15,7 +15,7 @@ Reads an executable file's header to determine if Windows x86, x64, or Mac. This
 
 [**excerpt-node-bandcamp-crawler**](/excerpt-node-bandcamp-crawler)  
 *Node.js/JavaScript, HTML5, CSS*  
-Excerpt from a project that uses the tastes of similar Bandcamp users to find new music.
+Excerpt from a project that uses the tastes of like-minded Bandcamp users to find new music.
 
 ---
 
