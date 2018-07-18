@@ -1,6 +1,8 @@
 # Portfolio
 ## Samples from select projects in various languages
 
+**[See my GitHub profile](https://github.com/cgio) for more samples** 
+
 Format: *file name/link, language/technologies, and description*  
 Listed in no particular order
 
